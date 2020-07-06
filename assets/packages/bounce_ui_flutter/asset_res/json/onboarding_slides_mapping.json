@@ -1,0 +1,28 @@
+{
+    "data": [
+        {
+            "title": "1. Unlock Bike",
+            "sub_title": "To unlock the bike press # followed by the OTP provided to you",
+            "list": [],
+            "image": "UNLOCK_BIKE"
+        },
+        {
+            "title": "2. Helmet in Trunk",
+            "sub_title": "Close the trunk properly &amp; don't forget to keep it back before ending your trip",
+            "list": [],
+            "image": "HELMET_TRUNK"
+        },
+        {
+            "title": "3. Pause the Trip",
+            "sub_title": "To start your ride again",
+            "list": [],
+            "image": "PAUSE_TRIP"
+        },
+        {
+            "title": "4. Complete your ride",
+            "sub_title": "To complete your ride, press # followed end trip on the bike. ",
+            "list": [],
+            "image": "COMPLETE_RIDE"
+        }
+    ]
+}

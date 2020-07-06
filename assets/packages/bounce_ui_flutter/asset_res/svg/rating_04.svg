@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ETA-Successful-Appstore-Rating04_selected" transform="translate(-222.000000, -464.000000)">
+            <g id="Group" transform="translate(222.000000, 464.000000)">
+                <path d="M24,0 C10.745,0 0,10.745 0,24 C0,37.255 10.745,48 24,48 C37.255,48 48,37.255 48,24 C48,10.745 37.255,0 24,0" id="Fill-1-Copy-4" fill="#FFD447"></path>
+                <circle id="Oval-Copy-4" fill="#771B1B" cx="16" cy="22" r="3"></circle>
+                <circle id="Oval-Copy-5" fill="#771B1B" cx="32" cy="22" r="3"></circle>
+                <path d="M18,33 C19,31.5 21,30 24,30 C27,30 29,31.5 30,33" id="Path-3-Copy-2" stroke="#DD3E3E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="translate(24.000000, 31.500000) scale(1, -1) translate(-24.000000, -31.500000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

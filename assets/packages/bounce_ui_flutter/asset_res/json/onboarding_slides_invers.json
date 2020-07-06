@@ -1,0 +1,34 @@
+{
+    "data": [
+    {
+    "title": "Unlock scooter from app to start/resume trip",
+    "sub_title": "Swipe to unlock the scooter &amp; start or resume your trip. Press self start button to ride.",
+    "list": [],
+    "image": "UNLOCK_BIKE"
+    },
+    {
+    "title": "Open the trunk for helmet",
+    "sub_title": "Use app to open the trunk &amp; take the helmet. Keep it back after your ride :)",
+    "list": [],
+    "image": "HELMET_TRUNK"
+    },
+    {
+    "title": "Lock scooter from app",
+    "sub_title": "Secure the scooter",
+    "list": [],
+    "image": "LOCK_BIKE"
+    },
+    {
+    "title": "Turn engine off by pressing button on Scooter",
+    "sub_title": "Use this to turn engine off at traffic signals while you are waiting.",
+    "list": [],
+    "image": "ENGINE_OFF"
+    },
+    {
+    "title": "End your trip from app",
+    "sub_title": "Press End trip on the app &amp; share your feedback to end your booking.",
+    "list": [],
+    "image": "END_TRIP"
+    }
+    ]
+}

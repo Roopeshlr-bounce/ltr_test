@@ -1,0 +1,52 @@
+{
+	"onboarding_media": [{
+			"video_url": "https://consumer-app-data.s3.ap-south-1.amazonaws.com/onboarding_data/invers/2.+Unlocking+the+scooter_720.mp4",
+			"image_url": "https://consumer-app-data.s3.ap-south-1.amazonaws.com/onboarding_data/invers_images/2+unlocking+scooter.jpg",
+			"image_duration_sec": "5",
+			"message_primary": "To start your ride",
+			"message_secondary": "Swipe the 'UNLOCK' button on the app"
+		},
+		{
+			"video_url": "https://consumer-app-data.s3.ap-south-1.amazonaws.com/onboarding_data/invers/4.+Open+trunk+and+wearing+helmet_720.mp4",
+			"image_url": "https://consumer-app-data.s3.ap-south-1.amazonaws.com/onboarding_data/invers_images/4+open+trunk+wear.jpg",
+			"image_duration_sec": "5",
+			"message_primary": "To take the helmet out",
+			"message_secondary": "Tap 'Open Trunk' on the app "
+		},
+		{
+			"video_url": "https://consumer-app-data.s3.ap-south-1.amazonaws.com/onboarding_data/invers/6.+Ignition+off_720.mp4",
+			"image_url": "https://consumer-app-data.s3.ap-south-1.amazonaws.com/onboarding_data/invers_images/6+engine+off.jpg",
+			"image_duration_sec": "5",
+			"message_primary": "To turn off engine",
+			"message_secondary": "Press &amp; hold the silver button"
+		},
+		{
+			"video_url": "https://consumer-app-data.s3.ap-south-1.amazonaws.com/onboarding_data/invers/7.+Locking+the+scooter_720.mp4",
+			"image_url": "https://consumer-app-data.s3.ap-south-1.amazonaws.com/onboarding_data/invers_images/7+lock+bike.jpg",
+			"image_duration_sec": "5",
+			"message_primary": "To lock scooter",
+			"message_secondary": "Tap 'LOCK' button on the app"
+		},
+		{
+			"video_url": "https://consumer-app-data.s3.ap-south-1.amazonaws.com/onboarding_data/invers/8.+Find+a+legal+parking+spot+and+park+there_720.mp4",
+			"image_url": "https://consumer-app-data.s3.ap-south-1.amazonaws.com/onboarding_data/invers_images/8+parking.jpg",
+			"image_duration_sec": "5",
+			"message_primary": "To park scooter",
+			"message_secondary": "Find a legal parking spot near you"
+		},
+		{
+			"video_url": "https://consumer-app-data.s3.ap-south-1.amazonaws.com/onboarding_data/invers/10.+End+trip_720_1.mp4",
+			"image_url": "https://consumer-app-data.s3.ap-south-1.amazonaws.com/onboarding_data/invers_images/10+end+trip.jpg",
+			"image_duration_sec": "5",
+			"message_primary": "To end your ride",
+			"message_secondary": "Tap the 'END TRIP' button on the app"
+		},
+		{
+			"video_url": "https://consumer-app-data.s3.ap-south-1.amazonaws.com/onboarding_data/invers/11.+Upload+photo_720.mp4",
+			"image_url": "https://consumer-app-data.s3.ap-south-1.amazonaws.com/onboarding_data/invers_images/11+upload+photo.jpg",
+			"image_duration_sec": "5",
+			"message_primary": "Final step",
+			"message_secondary": "Click a picture of your scooter's parking"
+		}
+	]
+}

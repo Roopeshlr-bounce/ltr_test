@@ -1,0 +1,45 @@
+
+    {
+        "key": "onboarding_slides_invers_ev",
+        "value": {
+            "data": [
+                {
+                    "title": "Turn on Bluetooth & Swipe to unlock the bike",
+                    "sub_title": "This bike is now ready to ride.",
+                    "list": [],
+                    "image": "EV_UNLOCK_BIKE"
+                },
+                {
+                    "title": "Switch ignition on & accelerate carefully",
+                    "sub_title": "Accelerate very slowly & carefully",
+                    "list": [],
+                    "image": "EV_ACCELERATE_SLOWLY"
+                },
+                {
+                    "title": "Tap Open trunk for helmet",
+                    "sub_title": "Open the trunk & take the helmet. Keep it back after your ride :)",
+                    "list": [],
+                    "image": "HELMET_TRUNK"
+                },
+                {
+                    "title": "Lock & Unlock scooter from app",
+                    "sub_title": "Secure the scooter to park & leave the scooter for some time during your trip. Tap unlock again to start the bike",
+                    "list": [],
+                    "image": "LOCK_BIKE"
+                },
+                {
+                    "title": "Switch off Ignition button & End your trip from the app",
+                    "sub_title": "Tap End Trip on the app & share your feedback to end your booking",
+                    "list": [],
+                    "image": "END_TRIP"
+                },
+                {
+                    "title": "No Self Start in this bike",
+                    "sub_title": "Accelerate very slowly & carefully",
+                    "list": [],
+                    "image": ""
+                }
+            ]
+        }
+    }
+   
