@@ -1,7 +1,12 @@
+import 'dart:async';
+import 'package:common_ui/module/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:common_ui/navigation/bottom_sheet_service.dart';
 
 void main() {
+  setUpServices();
+
   runApp(MyApp());
 }
 
@@ -35,15 +40,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -66,12 +62,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -82,24 +72,27 @@ class _MyHomePageState extends State<MyHomePage> {
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+            RaisedButton(
+              child: Text("Move to page 1 "),
+              color: Colors.blueAccent,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => page1()),
+                );
+              },
+            ),
+            RaisedButton(
+              child: Text("Move to page 2 "),
+              color: Colors.red,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => page2()),
+                );
+              },
             ),
             Text(
               '$_counter',
@@ -128,12 +121,17 @@ class SecondRoute extends StatefulWidget {
 }
 
 class _SecondRouteState extends State<SecondRoute> {
+  WebViewController _controller;
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () => Future.value(false),
+      onWillPop: () => _handleBack(context),
       child: WebView(
-        initialUrl: "http://localhost:56368/#/",
+        onWebViewCreated: (WebViewController webViewController) {
+          _controller = webViewController;
+        },
+        initialUrl: "https://roopeshlr-bounce.github.io/ltr_test/#/",
         javascriptMode: JavascriptMode.unrestricted,
         // onPageStarted: (url) {
         //   onPageStarted(url);
@@ -143,5 +141,71 @@ class _SecondRouteState extends State<SecondRoute> {
         // },
       ),
     );
+  }
+
+  Future<void> _handleBack(context) async {
+    var status = await _controller.canGoBack();
+    if (status) {
+      _controller.goBack();
+    } else {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: Text('Do you want to exit'),
+                actions: <Widget>[
+                  FlatButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text('No'),
+                  ),
+                  FlatButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text('Yes'),
+                  ),
+                ],
+              ));
+    }
+  }
+}
+
+class page1 extends StatelessWidget {
+  final BottomSheetService _bottomSheetService = locator<BottomSheetService>();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Column(
+      children: [
+        RaisedButton(
+          child: Text("move to new screen page 2"),
+          color: Colors.red,
+          onPressed: () {
+            _bottomSheetService.showDismissibleBottomSheet(
+                child: Container(
+                  height: 120,
+                  width: MediaQuery.of(context).size.width,
+                  child: Text("its a bottom sheet "),
+                ),
+                dismissible: true,
+                isScrollControlled: false);
+
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(builder: (context) => page2()),
+            // );
+          },
+        ),
+        Center(child: Text("Page1")),
+      ],
+    ));
+  }
+}
+
+class page2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(body: Center(child: Text("Page2")));
   }
 }
