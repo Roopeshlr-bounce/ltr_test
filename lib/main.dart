@@ -1,8 +1,17 @@
 import 'dart:async';
+
 import 'package:common_ui/module/service_locator.dart';
-import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 import 'package:common_ui/navigation/bottom_sheet_service.dart';
+import 'package:common_ui/navigation/navigation_service.dart';
+import 'package:flutter/material.dart';
+import 'package:js/js.dart';
+import 'package:web_test/bottomsheet.dart';
+import 'package:web_test/services/navigation/router.dart';
+import 'package:web_test/services/navigation/routes.dart';
+import 'package:web_test/sss.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+import 'package:js/js.dart' as js;
+//import 'bottomsheet.dart';
 
 void main() {
   setUpServices();
@@ -15,7 +24,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorObservers: [routeObserver],
+      navigatorKey: locator<NavigationService>().navigatorKey,
+      onGenerateRoute: generateRoute,
       title: 'Flutter Demo',
+      builder: getBuilder,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -74,24 +87,16 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            RaisedButton(
-              child: Text("Move to page 1 "),
-              color: Colors.blueAccent,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => page1()),
-                );
-              },
-            ),
+            Expanded(child: page1()),
             RaisedButton(
               child: Text("Move to page 2 "),
               color: Colors.red,
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => page2()),
-                );
+                myFunction();
+//                Navigator.push(
+//                  context,
+//                  MaterialPageRoute(builder: (context) => page2()),
+//                );
               },
             ),
             Text(
@@ -113,6 +118,10 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
+  void myFunction(){
+    postMessage("Hey hi hello");
+  }
 }
 
 class SecondRoute extends StatefulWidget {
@@ -131,7 +140,19 @@ class _SecondRouteState extends State<SecondRoute> {
         onWebViewCreated: (WebViewController webViewController) {
           _controller = webViewController;
         },
-        initialUrl: "https://roopeshlr-bounce.github.io/ltr_test/#/",
+        javascriptChannels: <JavascriptChannel>[
+          JavascriptChannel(
+              name: 'Print',
+              onMessageReceived: (JavascriptMessage message) {
+                print(message.message);
+              }),
+//          JavascriptChannel(
+//              name: 'Roopesh',
+//              onMessageReceived: (JavascriptMessage message) {
+//                print(message.message);
+//              })
+        ].toSet(),
+        initialUrl: " http://192.168.0.106:8080",
         javascriptMode: JavascriptMode.unrestricted,
         // onPageStarted: (url) {
         //   onPageStarted(url);
@@ -173,6 +194,8 @@ class _SecondRouteState extends State<SecondRoute> {
 
 class page1 extends StatelessWidget {
   final BottomSheetService _bottomSheetService = locator<BottomSheetService>();
+  final NavigationService _navigationService = locator<NavigationService>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -181,15 +204,14 @@ class page1 extends StatelessWidget {
         RaisedButton(
           child: Text("move to new screen page 2"),
           color: Colors.red,
-          onPressed: () {
-            _bottomSheetService.showDismissibleBottomSheet(
+          onPressed: () async {
+            _navigationService.navigateTo(Routes.nnn);
+            await _bottomSheetService.showDismissibleBottomSheet(
                 child: Container(
-                  height: 120,
-                  width: MediaQuery.of(context).size.width,
-                  child: Text("its a bottom sheet "),
+                  height: 200,
+                  width: 200,
                 ),
-                dismissible: true,
-                isScrollControlled: false);
+                dismissible: false);
 
             // Navigator.push(
             //   context,
@@ -203,9 +225,29 @@ class page1 extends StatelessWidget {
   }
 }
 
+Widget getBuilder(BuildContext context, Widget widget) {
+  return Navigator(
+    onGenerateRoute: (settings) => MaterialPageRoute(
+      builder: (context) => BottomSheetManager(
+        child: widget,
+      ),
+    ),
+  );
+}
+
 class page2 extends StatelessWidget {
   @override
+  final BottomSheetService _bottomSheetService = locator<BottomSheetService>();
+
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text("Page2")));
+    return Scaffold(
+        body: GestureDetector(
+            onTap: () => _bottomSheetService.showDismissibleBottomSheet(
+                dismissible: false,
+                child: Container(
+                  height: 200,
+                  color: Colors.yellow,
+                )),
+            child: Center(child: Text("Page2"))));
   }
 }

@@ -29,6 +29,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
   webview_flutter: any
+  get_it:
   utils:
     path: ../bounce_common/utils
   core_entities:
@@ -39,7 +40,10 @@ dependencies:
     path: ../bounce_common/common_remote
   common_ui:
     path: ../bounce_common/common_ui
-  
+  bounce_ui_flutter:
+    path: ../bounce_ui_flutter
+  js: any
+
 
 dev_dependencies:
   flutter_test:
