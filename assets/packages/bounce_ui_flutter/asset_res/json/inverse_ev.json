@@ -1,0 +1,40 @@
+{
+    "data": [
+        {
+            "title": "Turn on the Bluetooth &amp; Swipe to unlock the scooter",
+            "sub_title": "This scooter is now ready to ride.",
+            "list": [],
+            "image": "EV_UNLOCK_BIKE"
+        },
+        {
+            "title": "To start moving forward:",
+            "sub_title": "1. Turn on the ignition switch\n2. Accelerate carefully ",
+            "list": [],
+            "image": "EV_ACCELERATE_SLOWLY"
+        },
+        {
+            "title": "Tap on 'Open Trunk' for helmet",
+            "sub_title": "Open trunk &amp; take out the helmet. Keep it back in the trunk after your ride.",
+            "list": [],
+            "image": "HELMET_TRUNK"
+        },
+        {
+            "title": "Use app to 'Lock  &amp; 'Unlock' scooter",
+            "sub_title": "To pause ride, park in a valid parking spot &amp; tap 'Lock' on the app. Resume ride, by tapping 'UNLOCK' on the app.",
+            "list": [],
+            "image": "LOCK_BIKE"
+        },
+        {
+            "title": "Turn off the ignition switch &amp; 'End Ride' from the app",
+            "sub_title": "Tap on 'End Ride' on the app &amp; don't forget to share your feedback to help us serve you better.",
+            "list": [],
+            "image": "END_TRIP"
+        },
+        {
+            "title": "This is an electric scooter",
+            "sub_title": "1. It has no self-start\n2. Accelerate very slowly, to avoid jump-starts.\n3. Don't hold the brakes while trying to start the scooter.\n4. This scooter does not make any sound.",
+            "list": [],
+            "image": ""
+        }
+    ]
+}

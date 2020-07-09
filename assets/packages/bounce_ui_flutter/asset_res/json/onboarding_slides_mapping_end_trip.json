@@ -1,0 +1,28 @@
+{
+    "data": [
+        {
+            "title": "1. Start your ride",
+            "sub_title": "Press # followed by your OTP\n\nEND TRIP button will turn green once the scooter is unlocked.",
+            "list": [],
+            "image": "UNLOCK_BIKE"
+        },
+        {
+            "title": "2. Open trunk to take the helmet out",
+            "sub_title": "Press the green button on the left side of the scooter below the seat. If it is a Suzuki Access, then button is below the left handlebar. ",
+            "list": [],
+            "image": "HELMET_TRUNK"
+        },
+        {
+            "title": "3. Pause your ride if you're taking a break",
+            "sub_title": "To resume your ride",
+            "list": [],
+            "image": "PAUSE_TRIP"
+        },
+        {
+            "title": "4. End your ride on the app",
+            "sub_title": "Press # and END TRIP on the bike. Then, end the ride on the app",
+            "list": [],
+            "image": "FEEDBACK"
+        }
+    ]
+}
