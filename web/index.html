@@ -35,6 +35,16 @@
   <script src="bundle.js" type="application/javascript"></script>
   <script>PhonePe.PhonePe.loggingEnabled = true</script>
   <script>PhonePe.PhonePe.build(PhonePe.Constants.Species.web)
-  .then((sdk) => { console.log('hey hey') })</script>
+  .then((sdk) => {alert("PhonePe configuration Successful 1 "); })</script>
+
+  <script>PhonePe.PhonePe.build(PhonePe.Constants.Species.web).then((sdk) => {
+  sdk.fetchAuthToken().then((res) => {
+  alert("Grant token data received = " + res)
+  alert(res)
+  }).catch((err) => {
+  alert("Error occurred while fetching the grant token: " + err)
+  alert(err)
+  })
+  })</script>
 </body>
 </html>
