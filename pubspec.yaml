@@ -52,6 +52,7 @@ dependency_overrides:
   http:
     path: ../http_bolted
   path: 1.7.0
+  connectivity: 0.4.8
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

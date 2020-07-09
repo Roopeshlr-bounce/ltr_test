@@ -11,7 +11,7 @@ import 'package:web_test/services/navigation/routes.dart';
 import 'package:web_test/sss.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:js/js.dart' as js;
-//import 'bottomsheet.dart';
+import 'bottomsheet.dart';
 
 void main() {
   setUpServices();
@@ -153,6 +153,9 @@ class _SecondRouteState extends State<SecondRoute> {
 //              })
         ].toSet(),
         initialUrl: " http://192.168.0.106:8080",
+        onPageStarted: (msg) {
+          print(msg);
+        },
         javascriptMode: JavascriptMode.unrestricted,
         // onPageStarted: (url) {
         //   onPageStarted(url);
@@ -202,14 +205,13 @@ class page1 extends StatelessWidget {
         body: Column(
       children: [
         RaisedButton(
-          child: Text("move to new screen page 2"),
+          child: Text("Open Bottom sheet"),
           color: Colors.red,
           onPressed: () async {
-            _navigationService.navigateTo(Routes.nnn);
             await _bottomSheetService.showDismissibleBottomSheet(
-                child: Container(
-                  height: 200,
-                  width: 200,
+                child: Text(
+                  "Hey this is a bottom sheet",
+                  style: TextStyle(fontSize: 30, color: Colors.white),
                 ),
                 dismissible: false);
 

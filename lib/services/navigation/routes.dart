@@ -34,5 +34,4 @@ class Routes {
   static const String bounceClub = 'bounceClub';
   static const String prepaidPack = 'prepaidPack';
   static const String atsPenaltyScreen = 'atsPenaltyScreen';
-  static const String nnn = 'nnn';
 }
