@@ -209,9 +209,17 @@ class page1 extends StatelessWidget {
           color: Colors.red,
           onPressed: () async {
             await _bottomSheetService.showDismissibleBottomSheet(
-                child: Text(
-                  "Hey this is a bottom sheet",
-                  style: TextStyle(fontSize: 30, color: Colors.white),
+                child: Container(
+                  height: 500,
+                  width: MediaQuery.of(context).size.width,
+                  child: Container(
+                    color: Colors.blue,
+                    child: Center(
+                        child: Text(
+                      "Hey this is a bottom sheet",
+                      style: TextStyle(fontSize: 30, color: Colors.white),
+                    )),
+                  ),
                 ),
                 dismissible: false);
 
