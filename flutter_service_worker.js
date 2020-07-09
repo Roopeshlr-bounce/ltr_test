@@ -3,15 +3,15 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "index.html": "edcaeeb135aada9b0baafa55f3cbbf7a",
-"/": "edcaeeb135aada9b0baafa55f3cbbf7a",
-"main.dart.js": "4bdb907227dc64dec4c3f4f821a2da78",
+  "index.html": "b7783b1a2489d6081a401cd473d99bf7",
+"/": "b7783b1a2489d6081a401cd473d99bf7",
+"main.dart.js": "27778a12f801073b9c25a186bcda8187",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "manifest.json": "b098d55a747e68376dbec693dc2c4a43",
 "assets/AssetManifest.json": "a9cad8f807a38a23272058728d3f6a87",
-"assets/NOTICES": "fe2feaab3b8deda631ad97d14648a9f1",
+"assets/NOTICES": "3ef647921db2b29680057e1926beca77",
 "assets/FontManifest.json": "3456011224b75782fda347617a2a2ae4",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "115e937bb829a890521f72d2e664b632",
 "assets/packages/bounce_ui_flutter/asset_res/svg/no_bike_illustration.svg": "ca5f51bcdcc4cc8e6cc8ef13ea8b2631",

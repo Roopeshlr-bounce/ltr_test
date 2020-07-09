@@ -4577,6 +4577,7 @@ url_launcher_web
 --------------------------------------------------------------------------------
 connectivity_platform_interface
 path_provider_platform_interface
+url_launcher_linux
 
 // Copyright 2020 The Chromium Authors. All rights reserved.
 //
