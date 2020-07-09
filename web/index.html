@@ -32,5 +32,9 @@
     }
   </script>
   <script src="main.dart.js" type="application/javascript"></script>
+  <script src="bundle.js" type="application/javascript"></script>
+  <script>PhonePe.PhonePe.loggingEnabled = true</script>
+  <script>PhonePe.PhonePe.build(PhonePe.Constants.Species.web)
+  .then((sdk) => { console.log('hey hey') })</script>
 </body>
 </html>

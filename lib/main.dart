@@ -30,20 +30,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       builder: getBuilder,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+//        primaryColor: primaryColor,
+//        accentColor: primaryColor,
+        bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.black.withOpacity(0)),
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -136,34 +125,34 @@ class _SecondRouteState extends State<SecondRoute> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () => _handleBack(context),
-      child: WebView(
-        onWebViewCreated: (WebViewController webViewController) {
-          _controller = webViewController;
-        },
-        javascriptChannels: <JavascriptChannel>[
-          JavascriptChannel(
-              name: 'Print',
-              onMessageReceived: (JavascriptMessage message) {
-                print(message.message);
-              }),
+//      child: WebView(
+//        onWebViewCreated: (WebViewController webViewController) {
+//          _controller = webViewController;
+//        },
+//        javascriptChannels: <JavascriptChannel>[
 //          JavascriptChannel(
-//              name: 'Roopesh',
+//              name: 'Print',
 //              onMessageReceived: (JavascriptMessage message) {
 //                print(message.message);
-//              })
-        ].toSet(),
-        initialUrl: " http://192.168.0.106:8080",
-        onPageStarted: (msg) {
-          print(msg);
-        },
-        javascriptMode: JavascriptMode.unrestricted,
-        // onPageStarted: (url) {
-        //   onPageStarted(url);
-        // },
-        // onPageFinished: (url) {
-        //   onPageLoaded(url);
-        // },
-      ),
+//              }),
+////          JavascriptChannel(
+////              name: 'Roopesh',
+////              onMessageReceived: (JavascriptMessage message) {
+////                print(message.message);
+////              })
+//        ].toSet(),
+//        initialUrl: " http://192.168.0.106:8080",
+//        onPageStarted: (msg) {
+//          print(msg);
+//        },
+//        javascriptMode: JavascriptMode.unrestricted,
+//        // onPageStarted: (url) {
+//        //   onPageStarted(url);
+//        // },
+//        // onPageFinished: (url) {
+//        //   onPageLoaded(url);
+//        // },
+//      ),
     );
   }
 
