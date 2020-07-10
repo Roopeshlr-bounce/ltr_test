@@ -10,7 +10,8 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="web_test"
         android:icon="@mipmap/ic_launcher"
-        tools:replace="android:label,android:name">
+        tools:replace="android:label,android:name"
+        android:usesCleartextTraffic="true">
        
         <activity
             android:name=".MainActivity"

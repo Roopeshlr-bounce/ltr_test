@@ -1,7 +1,8 @@
-import 'package:bounce_ui_flutter/bounce_design.dart';
 import 'package:common_ui/module/service_locator.dart';
 import 'package:common_ui/navigation/bottom_sheet_service.dart';
 import 'package:flutter/material.dart';
+import 'package:web_test/dismisable_bottom_sheet.dart';
+import 'package:web_test/non_dismissible_bottom_sheet.dart';
 
 //dummy comment
 

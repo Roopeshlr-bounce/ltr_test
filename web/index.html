@@ -33,8 +33,41 @@
   </script>
   <script src="main.dart.js" type="application/javascript"></script>
   <script src="bundle.js" type="application/javascript"></script>
-  <script>PhonePe.PhonePe.loggingEnabled = true</script>
-  <script>PhonePe.PhonePe.build(PhonePe.Constants.Species.web)
-  .then((sdk) => { console.log('hey hey') })</script>
+  <script src="myjsfile.js" type="application/javascript"></script>
+<!--  <script>function printName(name) {-->
+<!--    PhonePe.PhonePe.build(PhonePe.Constants.Species.web).then((sdk) => {-->
+<!--  sdk.fetchAuthToken().then((res) => {-->
+<!--  alert("Grant token data received = " + res)-->
+<!--  alert(res)-->
+<!--  }).catch((err) => {-->
+<!--  alert("Error occurred while fetching the grant token: " + err)-->
+<!--  alert(err)-->
+<!--  })-->
+<!--  })-->
+<!--  let result = await sdk.seekPermission([PhonePe.Constants.Permission.LOCATION])-->
+
+<!--//If the permission has been given for location-->
+<!--//Then get the current location-->
+<!--//Else getCurrentLocation() would reject-->
+<!--sdk.getCurrentLocation()-->
+<!--  .then((location) => {-->
+<!--  	alert("Location received with latitude = " + location.latitude + ' longitude = ' + location.longitude)-->
+<!--  })-->
+<!--  .catch((err) => {-->
+<!--  	alert("Error found when fetching location = " + err)-->
+<!--  })-->
+<!--}</script>-->
+<!--  <script>PhonePe.PhonePe.build(PhonePe.Constants.Species.web)-->
+<!--  .then((sdk) => {alert("PhonePe configuration Successful 1 "); })</script>-->
+
+<!--  <script>PhonePe.PhonePe.build(PhonePe.Constants.Species.web).then((sdk) => {-->
+<!--  sdk.fetchAuthToken().then((res) => {-->
+<!--  alert("Grant token data received = " + res)-->
+<!--  alert(res)-->
+<!--  }).catch((err) => {-->
+<!--  alert("Error occurred while fetching the grant token: " + err)-->
+<!--  alert(err)-->
+<!--  })-->
+<!--  })</script>-->
 </body>
 </html>

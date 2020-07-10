@@ -1,16 +1,13 @@
-import 'dart:async';
-
 import 'package:common_ui/module/service_locator.dart';
 import 'package:common_ui/navigation/bottom_sheet_service.dart';
 import 'package:common_ui/navigation/navigation_service.dart';
 import 'package:flutter/material.dart';
 import 'package:js/js.dart';
 import 'package:web_test/bottomsheet.dart';
+import 'package:web_test/ppp.dart';
 import 'package:web_test/services/navigation/router.dart';
-import 'package:web_test/services/navigation/routes.dart';
 import 'package:web_test/sss.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-import 'package:js/js.dart' as js;
+
 import 'bottomsheet.dart';
 
 void main() {
@@ -50,14 +47,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  TextEditingController textEditingController = TextEditingController();
+  String myToken;
 
   void _incrementCounter() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
       _counter++;
     });
   }
@@ -78,10 +72,12 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Expanded(child: page1()),
             RaisedButton(
-              child: Text("Move to page 2 "),
+              child: Text("Fetch token"),
               color: Colors.red,
               onPressed: () {
-                myFunction();
+                BounceDart.fetchToken(allowInterop(_showToken));
+//                js.context.callMethod('printName', ["sumit"]);
+//                myFunction();
 //                Navigator.push(
 //                  context,
 //                  MaterialPageRoute(builder: (context) => page2()),
@@ -89,8 +85,8 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              myToken == null ? 'Token:' : 'Token: $myToken',
+              style: TextStyle(color: Colors.black, fontSize: 20),
             ),
           ],
         ),
@@ -108,8 +104,15 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  void myFunction(){
+  void myFunction() {
     postMessage("Hey hi hello");
+  }
+
+  _showToken(String string) async {
+    print('My Token: ' + string);
+    setState(() {
+      myToken = string;
+    });
   }
 }
 
@@ -119,106 +122,109 @@ class SecondRoute extends StatefulWidget {
 }
 
 class _SecondRouteState extends State<SecondRoute> {
-  WebViewController _controller;
+//  WebViewController _controller;
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () => _handleBack(context),
-//      child: WebView(
-//        onWebViewCreated: (WebViewController webViewController) {
-//          _controller = webViewController;
-//        },
-//        javascriptChannels: <JavascriptChannel>[
-//          JavascriptChannel(
-//              name: 'Print',
-//              onMessageReceived: (JavascriptMessage message) {
-//                print(message.message);
-//              }),
+    return Container();
+//    return WillPopScope(
+////      onWillPop: () => _handleBack(context),
+////      child: WebView(
+////        onWebViewCreated: (WebViewController webViewController) {
+////          _controller = webViewController;
+////        },
+////        javascriptChannels: <JavascriptChannel>[
 ////          JavascriptChannel(
-////              name: 'Roopesh',
+////              name: 'Print',
 ////              onMessageReceived: (JavascriptMessage message) {
 ////                print(message.message);
-////              })
-//        ].toSet(),
-//        initialUrl: " http://192.168.0.106:8080",
-//        onPageStarted: (msg) {
-//          print(msg);
-//        },
-//        javascriptMode: JavascriptMode.unrestricted,
-//        // onPageStarted: (url) {
-//        //   onPageStarted(url);
-//        // },
-//        // onPageFinished: (url) {
-//        //   onPageLoaded(url);
-//        // },
-//      ),
-    );
+////              }),
+//////          JavascriptChannel(
+//////              name: 'Roopesh',
+//////              onMessageReceived: (JavascriptMessage message) {
+//////                print(message.message);
+//////              })
+////        ].toSet(),
+////        initialUrl: " http://192.168.0.106:8080",
+////        onPageStarted: (msg) {
+////          print(msg);
+////        },
+////        javascriptMode: JavascriptMode.unrestricted,
+////        // onPageStarted: (url) {
+////        //   onPageStarted(url);
+////        // },
+////        // onPageFinished: (url) {
+////        //   onPageLoaded(url);
+////        // },
+////      ),
+//    );
   }
 
-  Future<void> _handleBack(context) async {
-    var status = await _controller.canGoBack();
-    if (status) {
-      _controller.goBack();
-    } else {
-      showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-                title: Text('Do you want to exit'),
-                actions: <Widget>[
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Text('No'),
-                  ),
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Text('Yes'),
-                  ),
-                ],
-              ));
-    }
-  }
+//  Future<void> _handleBack(context) async {
+////    var status = await _controller.canGoBack();
+//    if (status) {
+////      _controller.goBack();
+//    } else {
+//      showDialog(
+//          context: context,
+//          builder: (context) => AlertDialog(
+//                title: Text('Do you want to exit'),
+//                actions: <Widget>[
+//                  FlatButton(
+//                    onPressed: () {
+//                      Navigator.of(context).pop();
+//                    },
+//                    child: Text('No'),
+//                  ),
+//                  FlatButton(
+//                    onPressed: () {
+//                      Navigator.of(context).pop();
+//                    },
+//                    child: Text('Yes'),
+//                  ),
+//                ],
+//              ));
+//    }
+//  }
 }
 
 class page1 extends StatelessWidget {
   final BottomSheetService _bottomSheetService = locator<BottomSheetService>();
   final NavigationService _navigationService = locator<NavigationService>();
+  TextEditingController textEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(
       children: [
-        RaisedButton(
-          child: Text("Open Bottom sheet"),
-          color: Colors.red,
-          onPressed: () async {
-            await _bottomSheetService.showDismissibleBottomSheet(
-                child: Container(
-                  height: 500,
-                  width: MediaQuery.of(context).size.width,
+        Center(
+          child: RaisedButton(
+            child: Text("Open Bottom sheet"),
+            color: Colors.red,
+            onPressed: () async {
+              await _bottomSheetService.showDismissibleBottomSheet(
                   child: Container(
-                    color: Colors.blue,
-                    child: Center(
-                        child: Text(
-                      "Hey this is a bottom sheet",
-                      style: TextStyle(fontSize: 30, color: Colors.white),
-                    )),
+                    height: 500,
+                    width: MediaQuery.of(context).size.width,
+                    child: Container(
+                      color: Colors.blue,
+                      child: Center(
+                          child: Text(
+                        "Hey this is a bottom sheet",
+                        style: TextStyle(fontSize: 30, color: Colors.white),
+                      )),
+                    ),
                   ),
-                ),
-                dismissible: false);
+                  dismissible: false);
 
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => page2()),
-            // );
-          },
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => page2()),
+              // );
+            },
+          ),
         ),
-        Center(child: Text("Page1")),
       ],
     ));
   }
